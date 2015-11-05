@@ -1,6 +1,6 @@
-# Game of Thrones Concentration
+# A Song of Ice and Fire: Games of Concentration
 
-When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~ don't. 
+"When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~ don't."
 
 ##User Guide
 
@@ -29,27 +29,51 @@ When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~ do
 ## Wire Frames
 
 1. When a player first navigates to the page:
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame1.JPG)
 
 2. When a player starts the game and makes their first selection. In this case the selection is not a match, so the cards would flip back over. The player's score increases:
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame2.JPG)
 
 3. When a player is further into their game and some matches have been found. These cards will stay flipped, but fade: 
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame3.JPG)
 
 4. When all the matches have been found, unfade all the cards:
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame4.JPG)
 
 5. Win Scenario 1: when a player has won, but has not beaten the high score:
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame5.JPG)
 
 6. Win Scenario 2: when a player has won AND beaten the high score:
+
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame6.JPG)
 
 
 
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* jQuery
 
 
+
+## Description
+
+Concentration is a memory game. Players are presented with a board of face-down cards. Players choose one card to flip over, then pick a second one in an attempt to match it to the first.
+
+When two cards are matched they remain face up. Eventually through memory (and chance), all of the cards will be face-up and the game is over.
+
+This particular game of concentration is A Song of Ice and Fire themed. Cards are house sigils, house words, and characters. 
+
+
+
+## Link to Game!
 
 
 

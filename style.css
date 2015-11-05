@@ -1,0 +1,44 @@
+body {
+  background: tan;
+}
+
+h1 {
+   text-align: center;
+}
+
+#painted-table {
+  border: 1px solid red;
+  height: 100px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 20px;
+  width: 40%;
+}
+
+#col1 {
+ padding: 5px; 
+ width: 40%;
+ float: left;
+ margin: 0 auto;
+}
+
+
+#col2 {
+ padding: 5px; 
+ width: 40%;
+ float: right;
+ margin: 0 auto;
+}
+
+.stark {
+  background: grey;
+}
+
+.lannister {
+  background: darkred;
+}
+
