@@ -1,7 +1,8 @@
 # Game of Thrones Concentration
 
+When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~ don't. 
 
-**User Guide**
+##User Guide
 
 1. A user should be presented with a board of face-down cards.
 2. When a user clicks two cards they should both flip over and remain flipped over so the user can see their faces.
@@ -11,3 +12,5 @@
 6. A user should have the option to reset the board at any point. 
 7. If a user complete's the game, they should be notified of their victory, their score, and encouraged to beat their score.
 * If a player has gotten the best score, they should be notified of that as well.
+
+## Wire Frames
