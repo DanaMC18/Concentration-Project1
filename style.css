@@ -8,43 +8,51 @@ h1 {
 
 #painted-table {
   border: 1px solid red;
-  height: 100px;
-  width: 75%;
+  height: 500px;
+  width: 90%;
   margin: 0 auto;
 }
 
 .card {
   border: 1px solid white;
   padding: 20px;
-  width: 40%;
+  width: 50px;
+  height: 50px;
+  margin: 10%;
+
 }
 
-#col1 {
- padding: 5px; 
- width: 40%;
- float: left;
- margin: 0 auto;
-}
-
-
-#col2 {
- padding: 5px; 
- width: 40%;
- float: right;
- margin: 0 auto;
+.column {
+  padding: 2%; 
+  width: 15%;
+  float: left;
+  float: right;
+  margin: 0, auto;
 }
 
 .stark {
-  background: grey;
+  background: lightgrey;
 }
 
 .lannister {
   background: darkred;
 }
 
-.facedown {
-  background: black;
+.targaryen {
+  background: red;
 }
+
+.baratheon {
+  background: gold;
+}
+
+.greyjoy {
+  background: slategrey;
+}
+
+/*.facedown {
+  background: black;
+}*/
 
 .match {
   border: 1px solid yellow;
