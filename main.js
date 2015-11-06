@@ -5,7 +5,7 @@ var cards = document.querySelectorAll('.card');
 
 //an empty selections array, add selections with each turn to compare later
 var selections = [];
-    
+
 
 var makeFacedown = function(){
   target.classList.add('facedown');
@@ -22,8 +22,6 @@ var noMatch = function(){
 //basic function to flip a card over when it is selected
 var flipCard = function(event) {
   target = event.target;
-  console.log(target);
-
 
   if (target.classList.contains('facedown')) {
     target.classList.remove('facedown');
@@ -48,62 +46,51 @@ var flipCard = function(event) {
         selections[selections.length - 2].classList.add('match');
   
       } else if (firstChoice.classList.toString().split(' ')[1] !== secondChoice.classList.toString().split(' ')[1]) {
-        window.setTimeout(noMatch, 2000);      
+        window.setTimeout(noMatch, 1000);      
       }
     }
   } 
 };
 
-//Fisher-Yates (aka Knuth) Shuffle: found on 
+
+var classes = ['stark', 'stark', 'lannister', 'lannister', 'baratheon', 'baratheon', 'targaryen', 'targaryen', 'greyjoy', 'greyjoy'];
 
 
+//Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
-// function shuffle(cards) {
-//   var currentIndex = cards.length, temporaryValue, randomIndex ;
+var shuffle = function (array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
 
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-
-//   return array;
-// }
-
-
-
-
-//put event listeners on all the cards
-var createEventListeners = function(){
-  for (var i = 0; i < cards.length; i++) {
-    var card = cards[i];
-    card.addEventListener('click', flipCard);
-    card.addEventListener('dblclick', makeFacedown); 
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
-};
 
-createEventListeners();
-
-
-
-//STARTED TRYING TO USE jQUERY BUT AM HAVING TOO MANY ISSUES KEEPING VARIABLES STRAIGHT
-//I'M NOT COMFORTABLE ENOUGH YET WITH jQUERY TO USE IT ON SUCH A BIG PROJECT
-
-//jQuery
-$(document).ready(function(){
+  return array;
+}
 
 
-// $cards.push($('.card'));
+var resetBoard = function(){
+  var newClasses = shuffle(classes);
+
+  for (var i = 0; i < newClasses.length; i++){ 
+    cards[i].classList.add(newClasses[i]);
+  }
+}
 
 
-// $('.card').click(flipCard);
 
+//added event listener to parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
+var paintedTable = document.querySelector('#painted-table');
 
-});
+paintedTable.addEventListener('click', flipCard, false);
+paintedTable.addEventListener('dblclick', makeFacedown, false);
+

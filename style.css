@@ -50,9 +50,9 @@ h1 {
   background: slategrey;
 }
 
-/*.facedown {
+.facedown {
   background: black;
-}*/
+}
 
 .match {
   border: 1px solid yellow;
