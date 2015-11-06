@@ -53,7 +53,12 @@ var flipCard = function(event) {
 };
 
 
-var classes = ['stark', 'stark', 'lannister', 'lannister', 'baratheon', 'baratheon', 'targaryen', 'targaryen', 'greyjoy', 'greyjoy'];
+var classes = [
+            'stark', 'stark', 
+            'lannister', 'lannister', 
+            'baratheon', 'baratheon', 
+            'targaryen', 'targaryen', 
+            'greyjoy', 'greyjoy'];
 
 
 //Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -87,10 +92,19 @@ var resetBoard = function(){
 }
 
 
-
 //added event listener to parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
 var paintedTable = document.querySelector('#painted-table');
 
 paintedTable.addEventListener('click', flipCard, false);
 paintedTable.addEventListener('dblclick', makeFacedown, false);
+
+
+
+
+
+
+
+
+
+
 

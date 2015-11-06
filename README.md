@@ -1,6 +1,6 @@
 # A Song of Ice and Fire: Game of Concentration
 
-"When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~ don't."
+"When you play the game of thrones, you ~~win~~ flip over cards or you ~~die~~...don't."
 
 ##User Guide
 

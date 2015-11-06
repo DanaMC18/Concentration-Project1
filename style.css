@@ -1,9 +1,11 @@
 body {
   background: tan;
+  font-family: helvetica;
 }
 
 h1 {
    text-align: center;
+   font-size: 50px;
 }
 
 #painted-table {
@@ -11,6 +13,17 @@ h1 {
   height: 500px;
   width: 90%;
   margin: 0 auto;
+}
+
+a {
+  border: 3px solid black;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  margin: 0 auto;
+  width: 20%;
+  display: block;
+  text-align: center;
 }
 
 .card {
