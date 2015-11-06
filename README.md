@@ -34,7 +34,7 @@
 2. When a player starts the game and makes their first selection. In this case the selection is not a match, so the cards would flip back over. The player's score increases:
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame2.JPG)
 
-3. When a player is further into their game and some matches have been found. These cards will stay flipped, but fade: 
+3. When a player is further into their game and some matches have been found. These cards will stay flipped: 
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame3.JPG)
 
 4. When all the matches have been found, unfade all the cards:
