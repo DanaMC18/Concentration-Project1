@@ -1,15 +1,18 @@
+var paintedTable = document.querySelector('#painted-table');
+var newGameBtn = document.querySelector('#new-game-btn');
 
 //create array for cards and push cards into array
 var cards = document.querySelectorAll('.card');
-
 
 //an empty selections array, add selections with each turn to compare later
 var selections = [];
 
 
+
 var makeFacedown = function(){
   target.classList.add('facedown');
 };
+
 
 
 //take last two cards selected and turn face down if they don't match
@@ -19,13 +22,14 @@ var noMatch = function(){
 };
 
 
+
 //basic function to flip a card over when it is selected
 var flipCard = function(event) {
   target = event.target;
 
   if (target.classList.contains('facedown')) {
     target.classList.remove('facedown');
-    selections.push(target); //push targets to an array to compare
+    selections.push(target); //push targets to an array to compare later
     
     var firstChoice = selections[selections.length - 2]; 
     var secondChoice = selections[selections.length - 1];
@@ -33,7 +37,7 @@ var flipCard = function(event) {
     //if two cards are selected determine if they match
     if (selections.length % 2 === 0) {
 
-      if (firstChoice.classList.toString().split(' ')[1] === secondChoice.classList.toString().split(' ')[1] &&
+      if (firstChoice.classList[1] === secondChoice.classList[1] &&
           firstChoice.id !== secondChoice.id){
 
         firstChoice.removeEventListener('click', flipCard);
@@ -42,8 +46,8 @@ var flipCard = function(event) {
         firstChoice.removeEventListener('dblclick', makeFacedown);
         secondChoice.removeEventListener('dblclick', makeFacedown);
 
-        selections[selections.length - 1].classList.add('match');
-        selections[selections.length - 2].classList.add('match');
+        firstChoice.classList.add('match');
+        secondChoice.classList.add('match');
   
       } else if (firstChoice.classList.toString().split(' ')[1] !== secondChoice.classList.toString().split(' ')[1]) {
         window.setTimeout(noMatch, 1000);      
@@ -53,16 +57,23 @@ var flipCard = function(event) {
 };
 
 
+
+//ADD MORE CLASSES
 var classes = [
             'stark', 'stark', 
             'lannister', 'lannister', 
             'baratheon', 'baratheon', 
             'targaryen', 'targaryen', 
-            'greyjoy', 'greyjoy'];
+            'greyjoy', 'greyjoy',
+            'nightswatch', 'nightswatch',
+            'tyrell', 'tyrell',
+            'dothraki', 'dothraki',
+            'martell', 'martell',
+            'tully', 'tully'];
+
 
 
 //Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-
 var shuffle = function (array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
@@ -83,20 +94,27 @@ var shuffle = function (array) {
 }
 
 
-var resetBoard = function(){
-  var newClasses = shuffle(classes);
 
-  for (var i = 0; i < newClasses.length; i++){ 
-    cards[i].classList.add(newClasses[i]);
+//classList is always going to have 3 classes -- '.facedown' gets replaced with '.match' when two have been matched
+//so to reset the game the last two have to be removed and replaced with '.facedown' and a new class for matching purposes
+var resetGame = function() {
+  shuffle(classes);
+
+  for (var i = 0; i < classes.length; i++) {
+    cards[i].classList.remove(cards[i].classList[1]);
+    cards[i].classList.remove(cards[i].classList[1]);
+
+    cards[i].classList.add('facedown', classes[i]);
   }
 }
 
 
-//added event listener to parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
-var paintedTable = document.querySelector('#painted-table');
 
+//added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
 paintedTable.addEventListener('click', flipCard, false);
 paintedTable.addEventListener('dblclick', makeFacedown, false);
+
+newGameBtn.addEventListener('click', resetGame);
 
 
 
