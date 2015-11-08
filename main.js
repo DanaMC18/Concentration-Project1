@@ -26,13 +26,13 @@ var classes = [
 
 
 //ADD ANIMATION TO P ELEMENT AND POSSIBLY HEADER -- NOT WORKING
-// var animateP = function() {
-//   var pElement = document.querySelector('p');
-//   pElement.classList.remove('hidden');
-//   pElement.classList.add('pulse');
+// var animateH2 = function() {
+//   var h2Element = document.querySelector('h2');
+//   h2Element.classList.remove('hidden');
+//   h2Element.classList.add('pulse');
 // }
 
-// window.setTimeout(animateP, 2000);
+// window.setTimeout(animateH2, 2000);
 
 
 
@@ -109,15 +109,12 @@ var flipCard = function(event) {
 
         firstChoice.removeEventListener('click', flipCard);
         secondChoice.removeEventListener('click', flipCard);
-    
-        firstChoice.removeEventListener('dblclick', makeFacedown);
-        secondChoice.removeEventListener('dblclick', makeFacedown);
 
         //highlights matches
         firstChoice.classList.add('match');
         secondChoice.classList.add('match');
   
-      } else if (firstChoice.classList[1] !== secondChoice.classList[1]) {
+      } else if (firstChoice.classList[1] !== secondChoice.classList[1] && firstChoice.id !== secondChoice.id) {
         window.setTimeout(noMatch, 1000); //leave enough time for player to see cards
       }
     }
@@ -168,15 +165,18 @@ var resetGame = function() {
     timeCount = 0;
     timer.textContent = null; //reset timers
 
-  } else {
+  } else if (timeCount === 0) {
     //start timer when New Game is selected but ONLY for very first game otherwise timer speeds up
     window.setInterval(timeGame, 1000);
+  
+  } else {
+    timeCount = 0;
+    timer.textContent = null; //reset timers
   }
 
   //added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
   //inside function so player must press New Game button before they can flip cards
   paintedTable.addEventListener('click', flipCard, false);
-  paintedTable.addEventListener('dblclick', makeFacedown, false);
 }
 
 
