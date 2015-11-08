@@ -14,9 +14,25 @@ h1 {
   margin-bottom: 0px;
 }
 
-p {
+#instructions {
   font-size: 30px;
   margin-top: 0px;
+}
+
+a {
+  border: 3px solid #C8B590;
+  color: #C8B590;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  margin: 0 auto;
+  width: 20%;
+  display: block;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
 }
 
 #painted-table {
@@ -48,16 +64,8 @@ p {
   margin: 0, auto;
 }
 
-a {
-  border: 3px solid #C8B590;
-  color: #C8B590;
-  font-weight: bold;
-  font-size: 30px;
-  padding: 5px;
-  margin: 0 auto;
-  width: 20%;
-  display: block;
-  text-align: center;
+#new-game-btn {
+  cursor: pointer;
 }
 
 .stark {
