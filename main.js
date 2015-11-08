@@ -1,3 +1,4 @@
+
 var paintedTable = document.querySelector('#painted-table');
 var newGameBtn = document.querySelector('#new-game-btn');
 
@@ -6,6 +7,29 @@ var cards = document.querySelectorAll('.card');
 
 //an empty selections array, add selections with each turn to compare later
 var selections = [];
+
+//array of classes to be shuffled/assigned when games start
+var classes = [
+            'stark', 'stark', 
+            'lannister', 'lannister', 
+            'baratheon', 'baratheon', 
+            'targaryen', 'targaryen', 
+            'greyjoy', 'greyjoy',
+            'arryn', 'arryn',
+            'tyrell', 'tyrell',
+            'bolton', 'bolton',
+            'martell', 'martell',
+            'tully', 'tully'];
+
+
+
+// var animateP = function() {
+//   var pElement = document.querySelector('p');
+//   pElement.classList.remove('hidden');
+//   pElement.classList.add('pulse');
+// }
+
+window.setTimeout(animateP, 2000);
 
 
 
@@ -58,21 +82,6 @@ var flipCard = function(event) {
 
 
 
-//ADD MORE CLASSES
-var classes = [
-            'stark', 'stark', 
-            'lannister', 'lannister', 
-            'baratheon', 'baratheon', 
-            'targaryen', 'targaryen', 
-            'greyjoy', 'greyjoy',
-            'nightswatch', 'nightswatch',
-            'tyrell', 'tyrell',
-            'dothraki', 'dothraki',
-            'martell', 'martell',
-            'tully', 'tully'];
-
-
-
 //Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 var shuffle = function (array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -106,13 +115,13 @@ var resetGame = function() {
 
     cards[i].classList.add('facedown', classes[i]);
   }
+
+  //added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
+  //inside function so player must press New Game button before they can flip cards
+  paintedTable.addEventListener('click', flipCard, false);
+  paintedTable.addEventListener('dblclick', makeFacedown, false);
 }
 
-
-
-//added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
-paintedTable.addEventListener('click', flipCard, false);
-paintedTable.addEventListener('dblclick', makeFacedown, false);
 
 newGameBtn.addEventListener('click', resetGame);
 

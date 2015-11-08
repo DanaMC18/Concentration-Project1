@@ -1,27 +1,43 @@
 body {
-  background: tan;
-  font-family: helvetica;
+  /*background: #C8B590;*/
+  background: #111214;
+  font-family: fantasy;
+}
+
+header {
+   text-align: center;
+   color: #C8B590;
 }
 
 h1 {
-   text-align: center;
-   font-size: 50px;
+  font-size: 80px;
+  margin-bottom: 0px;
+}
+
+p {
+  font-size: 30px;
+  margin-top: 0px;
 }
 
 #painted-table {
- /* border: 1px solid red;*/
-  height: 505px;
+  border: 3px solid #C8B590;
+  background: url('./images/westeros2.jpg');
+  background-position: center;
+  height: 590px;
   width: 90%;
-  margin: 0 auto;
+  margin: 3% auto;
 }
+
+/*.hidden {
+  visibility: hidden;
+}*/
 
 .card {
   border: 1px solid white;
   padding: 20px;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 80px;
   margin: 10%;
-
 }
 
 .column {
@@ -33,7 +49,8 @@ h1 {
 }
 
 a {
-  border: 3px solid black;
+  border: 3px solid #C8B590;
+  color: #C8B590;
   font-weight: bold;
   font-size: 30px;
   padding: 5px;
@@ -44,51 +61,62 @@ a {
 }
 
 .stark {
-  background: lightgrey;
+  background-image: url('./images/sigils/stark.jpg');
+  background-position: center;
 }
 
 .lannister {
-  background: darkred;
+  background-image: url('./images/sigils/lannister.jpg');
+  background-position: center;
 }
 
 .targaryen {
-  background: red;
+ background-image: url('./images/sigils/targaryen.jpg');
+ background-position: center;
 }
 
 .baratheon {
-  background: gold;
+  background-image: url('./images/sigils/baratheon.jpg');
+  background-position: center;
 }
 
 .greyjoy {
-  background: slategrey;
+  background-image: url('./images/sigils/greyjoy.jpg');
+  background-position: center;
 }
 
-.nightswatch {
-  background: black;
+.arryn {
+  background-image: url('./images/sigils/arryn.jpg');
+  background-position: center;
 }
 
 .tyrell {
-  background: blue;
+ background-image: url('./images/sigils/tyrell.jpg');
+ background-position: center;
 }
 
-.dothraki {
-  background: blanchedalmond;
+.bolton {
+  background-image: url('./images/sigils/bolton.jpg');
+  background-position: center;
 }
 
 .martell {
-  background: orange;
+  background-image: url('./images/sigils/martell.jpg');
+  background-position: center;
 }
 
 .tully {
-  background: navy;
+  background-image: url('./images/sigils/tully.jpg');
+  background-position: center;
 }
 
 .facedown {
-  background: white;
+ background: url('./images/iron-throne.jpg');
+ background-position: center;
 }
 
 .match {
-  border: 1px solid yellow;
+  border: 2px solid yellow;
 }
 
 
