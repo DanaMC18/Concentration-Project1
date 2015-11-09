@@ -31,6 +31,22 @@ a {
   text-align: center;
 }
 
+#timer-elements {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+#hide-timer-btn {
+  width: 10%;
+  font-size: 15px;
+  display: inline;
+  margin-top: 3%;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 p {
   font-size: 20px;
 }
@@ -44,9 +60,9 @@ p {
   margin: 3% auto;
 }
 
-/*.hidden {
+.hidden {
   visibility: hidden;
-}*/
+}
 
 .card {
   border: 1px solid white;

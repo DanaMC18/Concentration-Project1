@@ -42,6 +42,7 @@ var noMatch = function(){
 };
 
 
+
 //establish timer
 var timeCount = 0;
 var timeGame = function(){
@@ -49,6 +50,29 @@ var timeGame = function(){
   timer.textContent = timeCount;
 };
 
+var startTimer = function (){
+  window.setInterval(timeGame, 1000);
+};
+
+var stopTimer = function () {
+  window.clearInterval(timeGame);
+}
+
+
+var hideTimerBtn = document.getElementById('hide-timer-btn');
+
+var toggleTimer = function() {
+ if (timer.classList.contains('hidden')) {
+  timer.classList.remove('hidden');
+  hideTimerBtn.textContent = 'Hide Timer';
+ 
+ } else {
+  timer.classList.add('hidden');
+  hideTimerBtn.textContent = 'Show Timer';
+ }
+}
+
+hideTimerBtn.addEventListener('click', toggleTimer);
 
 
 //variables for determineWinner() below
@@ -77,7 +101,7 @@ var determineWinner = function() {
         playAgain.textContent = 'Play again and try to beat the best time!';
         header.appendChild(playAgain);
     }
-    clearInterval(timeGame);
+    stopTimer()
   }
 };
 
@@ -109,7 +133,7 @@ var flipCard = function(event) {
         secondChoice.classList.add('match');
   
       } else if (firstChoice.classList[1] !== secondChoice.classList[1] && firstChoice.id !== secondChoice.id) {
-        window.setTimeout(noMatch, 1000); //leave enough time for player to see cards
+        window.setTimeout(noMatch, 500); //leave enough time for player to see cards
       }
     }
   } 
@@ -122,6 +146,7 @@ var flipCard = function(event) {
 //so to reset the game the last two have to be removed and replaced with '.facedown' and a new class for matching purposes
 var resetGame = function() {
   shuffle(classes);
+  selections = [];
 
   for (var i = 0; i < classes.length; i++) {
     cards[i].classList.remove(cards[i].classList[1]);
@@ -139,7 +164,7 @@ var resetGame = function() {
 
   } else if (bestTime === 0 && timeCount === 0) {
     //start timer when New Game is selected but ONLY for very first game otherwise timer speeds up
-    window.setInterval(timeGame, 1000);
+    startTimer();
   
   } else {
     timeCount = 0;
