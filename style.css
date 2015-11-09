@@ -54,6 +54,7 @@ p {
   width: 58px;
   height: 80px;
   margin: 10%;
+  cursor: pointer;
 }
 
 .column {

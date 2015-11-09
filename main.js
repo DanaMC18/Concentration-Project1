@@ -1,4 +1,3 @@
-
 var paintedTable = document.querySelector('#painted-table');
 var newGameBtn = document.querySelector('#new-game-btn');
 var header = document.querySelector('header');
@@ -36,12 +35,6 @@ var classes = [
 
 
 
-var makeFacedown = function(){
-  target.classList.add('facedown');
-};
-
-
-
 //take last two cards selected and turn face down if they don't match
 var noMatch = function(){
   selections[selections.length - 2].classList.add('facedown');
@@ -49,12 +42,12 @@ var noMatch = function(){
 };
 
 
-
+//establish timer
 var timeCount = 0;
 var timeGame = function(){
   timeCount++;
   timer.textContent = timeCount;
-}
+};
 
 
 
@@ -66,7 +59,7 @@ var bestTimeAlert = document.createElement('p');
 var playAgain = document.createElement('p');
 
 var determineWinner = function() {
-  facedownCards = document.querySelectorAll('.facedown'); //array of cards still facedown AKA unmatched
+ var facedownCards = document.querySelectorAll('.facedown'); //array of cards still facedown AKA unmatched
 
   //if all cards have been matched game is over
   if (facedownCards.length === 0) {
@@ -77,21 +70,22 @@ var determineWinner = function() {
       if (timeCount < bestTime || bestTime === 0) {
         bestTime = timeCount;
         bestTimeElement.textContent = 'Best Time: ' + bestTime;
-        bestTimeAlert.textContent = 'You got the best time! Play again and try to beat it!'
+        bestTimeAlert.textContent = 'You got the best time! Play again and try to beat it!';
         header.appendChild(bestTimeAlert);
 
     } else {
         playAgain.textContent = 'Play again and try to beat the best time!';
         header.appendChild(playAgain);
     }
+    clearInterval(timeGame);
   }
-}
+};
 
 
 
 //basic function to flip a card over when it is selected
 var flipCard = function(event) {
-  target = event.target;
+ var target = event.target;
 
   if (target.classList.contains('facedown')) {
     target.classList.remove('facedown');
@@ -124,28 +118,6 @@ var flipCard = function(event) {
 
 
 
-//Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-var shuffle = function (array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-
-
-
 //classList is always going to have 3 classes -- '.facedown' gets replaced with '.match' when two cards have been matched
 //so to reset the game the last two have to be removed and replaced with '.facedown' and a new class for matching purposes
 var resetGame = function() {
@@ -165,7 +137,7 @@ var resetGame = function() {
     timeCount = 0;
     timer.textContent = null; //reset timers
 
-  } else if (timeCount === 0) {
+  } else if (bestTime === 0 && timeCount === 0) {
     //start timer when New Game is selected but ONLY for very first game otherwise timer speeds up
     window.setInterval(timeGame, 1000);
   
@@ -177,11 +149,31 @@ var resetGame = function() {
   //added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
   //inside function so player must press New Game button before they can flip cards
   paintedTable.addEventListener('click', flipCard, false);
-}
-
-
+};
 
 newGameBtn.addEventListener('click', resetGame);
+
+
+
+//Fisher-Yates (aka Knuth) Shuffle: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+var shuffle = function (array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+};
 
 
 
