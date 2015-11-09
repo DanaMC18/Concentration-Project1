@@ -10,43 +10,40 @@
 
 4. A user should select a second card to flip over and reveal its image.
 
-5. If the two flipped cards match each other they should remain  face up. 
+5. If the two flipped cards match each other they should remain face up. 
 
 6. If the two flipped cards do not match they will flip back over onto their faces. 
 
-7. Player then tries to match two more cards.
+7. Player then tries to match two more cards. And continue to do so until all cards have been matched with their pair.
 
-8. A counter will track the number of times a user has flipped over a pair of cards: the lower the score the better.
+8. A Timer will start from start of game and time a player until all cards have been matched. The lower the time the better.
 
-9. A user should have the option to reset the board at any point: cards will flip back over and Player Score resets to 0.
+9. A user should have the option to start a New Game at any point--cards will shuffle and flip back over while the Timer resets to 0.
 
-10. If a user complete's the game, they should be notified of their victory, their score, and encouraged to beat their score.
+10. If a user completes the game, they should be notified of their victory, their time, and encouraged to play again.
 
-11. If a player has gotten the best score, they should be notified.
+11. If a player has gotten the Best Time, they should be notified of this as well.
 
 
 
 ## Wire Frames
-<!-- 
-1. When a player first navigates to the page:
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame1.JPG)
 
-2. When a player starts the game and makes their first selection. In this case the selection is not a match, so the cards would flip back over. The player's score increases:
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame2.JPG)
+1. When a player first navigates to the page: Timer is blank and player is told to press New Game to begin:
+![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame1.png)
 
-3. When a player is further into their game and some matches have been found. These cards will stay flipped: 
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame3.JPG)
+2. When a player starts the game and makes their first selection. In this case the selection is not a match, so the cards would flip back over. The Timer has started:
+![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame2.png)
 
-4. When all the matches have been found, unfade all the cards:
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame4.JPG)
+3. When a player is further into their game and some matches have been found. When two cards are matched correctly, their borders highlight yellow to indicate a correct match. These cards will remain faceup:
+![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame3.png)
 
-5. Win Scenario 1: when a player has won, but has not beaten the high score:
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame5.JPG)
+4. When all matches have been found, a player has won. In this particular winning scenario, the player has gotten their Best Time:
+![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame4.png)
 
-6. Win Scenario 2: when a player has won AND beaten the high score:
-![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame6.JPG)
+5. Another winning scenario is when a player has won but has not beaten the Best Time:
+![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame5.png)
 
- -->
+
 
 ## Technologies Used
 
