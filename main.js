@@ -90,6 +90,7 @@ var determineWinner = function() {
       winner.textContent = 'Congrats you won in ' + timeCount + ' seconds!';
       header.appendChild(winner);
       timer.classList.add('hidden');
+      hideTimerBtn.textContent = 'Show Timer';
 
       //check for Best Time: if its the first game it will obviously be the best time, otherwise check if timeCount is less than bestTime
       if (timeCount < bestTime || bestTime === 0) {
@@ -110,7 +111,7 @@ var determineWinner = function() {
 
 //basic function to flip a card over when it is selected
 var flipCard = function(event) {
- var target = event.target;
+  var target = event.target;
 
   if (target.classList.contains('facedown')) {
     target.classList.remove('facedown');
@@ -149,6 +150,7 @@ var resetGame = function() {
   shuffle(classes);
   selections = [];
   timer.classList.remove('hidden');
+  hideTimerBtn.textContent = "Hide Timer";
 
   for (var i = 0; i < classes.length; i++) {
     cards[i].classList.remove(cards[i].classList[1]);
