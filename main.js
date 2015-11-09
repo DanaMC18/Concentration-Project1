@@ -89,6 +89,7 @@ var determineWinner = function() {
   if (facedownCards.length === 0) {
       winner.textContent = 'Congrats you won in ' + timeCount + ' seconds!';
       header.appendChild(winner);
+      timer.classList.add('hidden');
 
       //check for Best Time: if its the first game it will obviously be the best time, otherwise check if timeCount is less than bestTime
       if (timeCount < bestTime || bestTime === 0) {
@@ -147,6 +148,7 @@ var flipCard = function(event) {
 var resetGame = function() {
   shuffle(classes);
   selections = [];
+  timer.classList.remove('hidden');
 
   for (var i = 0; i < classes.length; i++) {
     cards[i].classList.remove(cards[i].classList[1]);
@@ -156,8 +158,8 @@ var resetGame = function() {
   }
 
   if (header.children.length > 5) { //if header has more than 5 children it indicates at least one game has already been played
-    header.removeChild(header.children[5]); //remove end of game alerts so new game can start 
-    header.removeChild(header.children[5]);
+    header.removeChild(header.children[4]); //remove end of game alerts so new game can start 
+    header.removeChild(header.children[4]);
     
     timeCount = 0;
     timer.textContent = null; //reset timers
