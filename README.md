@@ -1,4 +1,4 @@
-# A Song of Ice and Fire: Game of Concentration
+# A Match of Ice and Fire: Game of Concentration
 
 "When you play the game of concentration, you ~~win~~ flip over cards or you ~~die~~ ...don't."
 
@@ -27,7 +27,7 @@
 
 
 ## Wire Frames
-
+<!-- 
 1. When a player first navigates to the page:
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame1.JPG)
 
@@ -46,7 +46,7 @@
 6. Win Scenario 2: when a player has won AND beaten the high score:
 ![alt text](https://github.com/DanaMC18/concentration-project1/blob/master/wire-frame-imgs/frame6.JPG)
 
-
+ -->
 
 ## Technologies Used
 
