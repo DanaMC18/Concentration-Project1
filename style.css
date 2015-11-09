@@ -55,9 +55,10 @@ p {
   border: 3px solid #C8B590;
   background: url('./images/westeros2.jpg');
   background-position: center;
-  height: 600px;
+  display: flex;
   width: 90%;
   margin: 3% auto;
+  justify-content: space-around;
 }
 
 .hidden {
@@ -74,11 +75,12 @@ p {
 }
 
 .column {
-  padding: 2%; 
-  width: 15%;
-  float: left;
-  float: right;
-  margin: 0, auto;
+  /*padding: 2%; */
+  /*width: 15%;*/
+  /*display: inline-block;*/
+/*  float: left;
+  float: right;*/
+  /*margin: 0, auto;*/
 }
 
 #new-game-btn {

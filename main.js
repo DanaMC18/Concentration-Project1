@@ -24,14 +24,15 @@ var classes = [
 
 
 
-//ADD ANIMATION TO P ELEMENT AND POSSIBLY HEADER -- NOT WORKING
-// var animateH2 = function() {
-//   var h2Element = document.querySelector('h2');
-//   h2Element.classList.remove('hidden');
-//   h2Element.classList.add('pulse');
-// }
+//ADD ANIMATION TO h2 ELEMENT AND POSSIBLY HEADER -- NOT WORKING
+var animateH2 = function() {
+  var h2Element = document.querySelector('h2');
+  // h2Element.classList.remove('hidden');
+  h2Element.classList.add('animated');
+  h2Element.classList.add('pulse');
+}
 
-// window.setTimeout(animateH2, 2000);
+window.setTimeout(animateH2, 2000);
 
 
 
@@ -51,11 +52,12 @@ var timeGame = function(){
 };
 
 var startTimer = function (){
-  window.setInterval(timeGame, 1000);
+  var startTimerId = window.setInterval(timeGame, 1000);
+  return startTimerId;
 };
 
-var stopTimer = function () {
-  window.clearInterval(timeGame);
+var stopTimer = function (intervalId) {
+  window.clearInterval(intervalId);
 }
 
 
@@ -103,7 +105,7 @@ var determineWinner = function() {
         playAgain.textContent = 'Play again and try to beat the best time!';
         header.appendChild(playAgain);
     }
-    stopTimer()
+    stopTimer(intervalId)
   }
 };
 
@@ -149,6 +151,10 @@ var flipCard = function(event) {
 var resetGame = function() {
   shuffle(classes);
   selections = [];
+
+  newGameBtn.classList.add('animated');
+  newGameBtn.classList.add('flipOutX');
+
   timer.classList.remove('hidden');
   hideTimerBtn.textContent = "Hide Timer";
 
@@ -168,7 +174,7 @@ var resetGame = function() {
 
   } else if (bestTime === 0 && timeCount === 0) {
     //start timer when New Game is selected but ONLY for very first game otherwise timer speeds up
-    startTimer();
+    intervalId = startTimer();
   
   } else {
     timeCount = 0;
