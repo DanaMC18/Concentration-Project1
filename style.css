@@ -32,9 +32,7 @@ a {
 }
 
 #timer-elements {
-  width: 50%;
-  margin: 0 auto;
-  display: block;
+  margin-bottom: 0px;
 }
 
 #hide-timer-btn {
@@ -56,8 +54,8 @@ p {
   background: url('./images/westeros2.jpg');
   background-position: center;
   display: flex;
-  width: 90%;
-  margin: 3% auto;
+  width: 85%;
+  margin: 0 auto 3% auto;
   justify-content: space-around;
 }
 
@@ -74,14 +72,6 @@ p {
   cursor: pointer;
 }
 
-.column {
-  /*padding: 2%; */
-  /*width: 15%;*/
-  /*display: inline-block;*/
-/*  float: left;
-  float: right;*/
-  /*margin: 0, auto;*/
-}
 
 #new-game-btn {
   cursor: pointer;
