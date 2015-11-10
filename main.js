@@ -1,3 +1,4 @@
+
 var paintedTable = document.querySelector('#painted-table');
 var newGameBtn = document.querySelector('#new-game-btn');
 var header = document.querySelector('header');
@@ -24,15 +25,23 @@ var classes = [
 
 
 
-//ADD ANIMATION TO h2 ELEMENT AND POSSIBLY HEADER -- NOT WORKING
+//add animated to instructions to attract user's attention
 var animateH2 = function() {
   var h2Element = document.querySelector('h2');
-  // h2Element.classList.remove('hidden');
   h2Element.classList.add('animated');
   h2Element.classList.add('pulse');
+};
+
+window.setTimeout(animateH2, 1500);
+
+
+
+var animateTable = function(){
+  paintedTable.classList.add('animated');
+  paintedTable.classList.add('pulse');
 }
 
-window.setTimeout(animateH2, 2000);
+window.setTimeout(animateTable, 500);
 
 
 
@@ -44,7 +53,7 @@ var noMatch = function(){
 
 
 
-//establish timer
+//establish timer and set/clear intervals
 var timeCount = 0;
 var timeGame = function(){
   timeCount++;
@@ -58,9 +67,11 @@ var startTimer = function (){
 
 var stopTimer = function (intervalId) {
   window.clearInterval(intervalId);
-}
+};
 
 
+
+//option to hide timer for those players that dislike seeing timer tick (like me)
 var hideTimerBtn = document.getElementById('hide-timer-btn');
 
 var toggleTimer = function() {
@@ -72,9 +83,10 @@ var toggleTimer = function() {
   timer.classList.add('hidden');
   hideTimerBtn.textContent = 'Show Timer';
  }
-}
+};
 
 hideTimerBtn.addEventListener('click', toggleTimer);
+
 
 
 //variables for determineWinner() below
@@ -84,6 +96,7 @@ var winner = document.createElement('p');
 var bestTimeAlert = document.createElement('p');
 var playAgain = document.createElement('p');
 
+
 var determineWinner = function() {
  var facedownCards = document.querySelectorAll('.facedown'); //array of cards still facedown AKA unmatched
 
@@ -91,13 +104,11 @@ var determineWinner = function() {
   if (facedownCards.length === 0) {
       winner.textContent = 'Congrats you won in ' + timeCount + ' seconds!';
       header.appendChild(winner);
-      timer.classList.add('hidden');
-      hideTimerBtn.textContent = 'Show Timer';
 
       //check for Best Time: if its the first game it will obviously be the best time, otherwise check if timeCount is less than bestTime
       if (timeCount < bestTime || bestTime === 0) {
         bestTime = timeCount;
-        bestTimeElement.textContent = 'Best Time: ' + bestTime;
+        bestTimeElement.textContent = 'Best Time: ' + bestTime + ' seconds';
         bestTimeAlert.textContent = 'You got the best time! Play again and try to beat it!';
         header.appendChild(bestTimeAlert);
 
@@ -105,8 +116,11 @@ var determineWinner = function() {
         playAgain.textContent = 'Play again and try to beat the best time!';
         header.appendChild(playAgain);
     }
-    stopTimer(intervalId)
+    stopTimer(startTimerId); //stop timer
   }
+  //remove animation classes so if New Game is clicked again, it animates
+  newGameBtn.classList.remove('animated');
+  newGameBtn.classList.remove('bounce');
 };
 
 
@@ -153,10 +167,7 @@ var resetGame = function() {
   selections = [];
 
   newGameBtn.classList.add('animated');
-  newGameBtn.classList.add('flipOutX');
-
-  timer.classList.remove('hidden');
-  hideTimerBtn.textContent = "Hide Timer";
+  newGameBtn.classList.add('bounce');
 
   for (var i = 0; i < classes.length; i++) {
     cards[i].classList.remove(cards[i].classList[1]);
@@ -165,20 +176,21 @@ var resetGame = function() {
     cards[i].classList.add('facedown', classes[i]);
   }
 
-  if (header.children.length > 5) { //if header has more than 5 children it indicates at least one game has already been played
+  if (header.children.length > 4) { //if header has more than 5 children it indicates at least one game has already been played
     header.removeChild(header.children[4]); //remove end of game alerts so new game can start 
     header.removeChild(header.children[4]);
     
     timeCount = 0;
-    timer.textContent = null; //reset timers
+    timer.textContent = 0; //reset timer
+    startTimerId = startTimer();
 
-  } else if (bestTime === 0 && timeCount === 0) {
-    //start timer when New Game is selected but ONLY for very first game otherwise timer speeds up
-    intervalId = startTimer();
+  } else if (timeCount === 0 && bestTime === 0) { //if very first game, need to start timer
+      startTimerId = startTimer();
   
-  } else {
+  } else { //if restarting while already playing but before winning, just need to reset timer
     timeCount = 0;
-    timer.textContent = null; //reset timers
+    timer.textContent = 0; //reset timers
+
   }
 
   //added event listener to children of parent element as per this article: http://www.kirupa.com/html5/handling_events_for_many_elements.htm
@@ -209,14 +221,6 @@ var shuffle = function (array) {
 
   return array;
 };
-
-
-
-
-
-
-
-
 
 
 
