@@ -32,16 +32,7 @@ var animateH2 = function() {
   h2Element.classList.add('pulse');
 };
 
-window.setTimeout(animateH2, 1500);
-
-
-
-var animateTable = function(){
-  paintedTable.classList.add('animated');
-  paintedTable.classList.add('pulse');
-}
-
-window.setTimeout(animateTable, 500);
+window.setTimeout(animateH2, 1000);
 
 
 
@@ -118,9 +109,9 @@ var determineWinner = function() {
     }
     stopTimer(startTimerId); //stop timer
   }
-  //remove animation classes so if New Game is clicked again, it animates
-  newGameBtn.classList.remove('animated');
-  newGameBtn.classList.remove('bounce');
+  //remove animation classes so if New Game is clicked again, the table still animates
+  paintedTable.classList.remove('animated');
+  paintedTable.classList.remove('pulse');
 };
 
 
@@ -166,8 +157,8 @@ var resetGame = function() {
   shuffle(classes);
   selections = [];
 
-  newGameBtn.classList.add('animated');
-  newGameBtn.classList.add('bounce');
+  paintedTable.classList.add('animated');
+  paintedTable.classList.add('pulse');
 
   for (var i = 0; i < classes.length; i++) {
     cards[i].classList.remove(cards[i].classList[1]);
